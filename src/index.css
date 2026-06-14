@@ -445,7 +445,7 @@ header,
 .readdy-light-topbar {
   display: flex;
   height: 50px;
-  padding: 0 16px 0 20px;
+  padding: 10px 16px 10px 20px;
   background-color: #F8F9FA;
   border-bottom: 1px solid #E5E7EB;
   align-items: center;

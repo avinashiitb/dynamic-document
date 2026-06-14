@@ -1,10 +1,10 @@
 {
-  "id": "dynamic-document-plugin",
+  "id": "document",
   "name": "Dynamic Document",
   "version": "1.0.0",
   "description": "Rich text document editor with EditorJS as an external plugin.",
   "fileType": "document",
-  "route": "/dynamic-document-plugin/:file_id",
+  "route": "/document/:file_id",
   "entry": "/build/index.html",
   "icon": "build/Icons.svg",
   "preview": true
