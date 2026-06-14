@@ -1,0 +1,557 @@
+body {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow-x: hidden; /* Prevent horizontal scroll only */
+  font-family: Inter, system-ui, sans-serif;
+}
+
+#root {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* Update the CSS selectors to match the class names of EditorJS elements */
+.ce-editor__content,
+.ce-toolbar__content {
+  max-width: calc(100% - 170px) !important;
+}
+
+.ce-block {
+  max-width: 100% !important;
+}
+
+.ce-block__content {
+  max-width: calc(100% - 170px) !important;
+  margin: 0px 0px 0px 85px !important;
+}
+
+.ce-code__textarea {
+  resize: none; /* Disable manual resizing */
+  min-height: 100px; /* Set a minimum height */
+}
+
+.cdx-list-unordered .cdx-list__item-children {
+  margin-left: 1rem; /* Or 24px, customize as needed */
+}
+
+/* For parent items */
+.cdx-list-unordered > .cdx-list__item:before {
+  content: "•";
+  font-size: 2rem;
+}
+
+/* For child items */
+.cdx-list-unordered .cdx-list__item-children > .cdx-list__item:before {
+  content: "○";
+  font-size: 0.5rem;
+}
+/* 3rd level (circle) */
+.cdx-list-unordered
+  .cdx-list__item-children
+  .cdx-list__item-children
+  > .cdx-list__item::before {
+  content: "▪"; /* or use another symbol like ▪ or custom emoji */
+  font-size: 0.6rem;
+}
+
+.whenContentEditable:focus {
+  outline: none; /* Disable outline on focus */
+}
+
+.ce-code__prewrapper pre:focus {
+  outline: none;
+}
+
+/* Simple Image */
+.simple-image {
+  margin-top: 20px;
+  max-width: 100%;
+  border-radius: 4px;
+}
+
+.input-box-image {
+  padding: 20px;
+  padding-top: 10px;
+  background-color: #e8e8eb;
+  border-radius: 5px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 5px;
+}
+
+.tab:last-child {
+  margin-right: 0;
+}
+
+.input-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-wrapper input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.input-wrapper button {
+  padding: 10px;
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.image-container {
+  position: relative;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  resize: both; /* Optional for built-in resize on supported browsers */
+  overflow: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+.tabs {
+  display: flex;
+}
+
+.tab {
+  cursor: pointer;
+  width: 50px; /* Set width to 50px */
+  height: 30px; /* Set height to 30px */
+  line-height: 30px; /* Center text vertically */
+  text-align: center; /* Center text horizontally */
+  padding: 0;
+  border: 1px solid #ccc;
+  margin-right: 5px;
+  background-color: #f0f0f0;
+  font-size: 12px; /* Adjust font size if needed */
+}
+
+.tab.active {
+  background-color: #d0d0d0;
+}
+
+.input-wrapper {
+  margin-top: 10px;
+}
+
+.input-box-image {
+  border: 1px solid #ddd;
+  padding: 10px;
+  width: 100%;
+  max-width: 720px;
+  box-shadow:
+    0 1px 6px rgba(0, 0, 0, 0.2),
+    0 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.image-container input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.toolbar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 5px;
+}
+
+.toolbar button {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.toolbar button i {
+  font-size: 14px;
+}
+
+.resize-handle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  bottom: 0;
+  right: 0;
+  background-color: #4285f4;
+  cursor: se-resize;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .ce-editor__content,
+  .ce-toolbar__content {
+    max-width: calc(100% - 150px) !important;
+  }
+
+  .ce-block__content {
+    margin: 0px 75px 0px 75px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .ce-editor__content,
+  .ce-toolbar__content {
+    max-width: 100% !important;
+  }
+
+  .ce-block__content {
+    max-width: 100% !important;
+    margin: 0px 20px 0px 20px !important;
+  }
+
+  .tab {
+    width: auto;
+    flex: 1;
+  }
+
+  .input-box-image {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .input-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .input-wrapper input {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+
+  .input-wrapper button {
+    width: 100%;
+  }
+
+  .tabs {
+    flex-direction: column;
+  }
+
+  .tab {
+    margin-bottom: 5px;
+  }
+
+  .tab:last-child {
+    margin-bottom: 0;
+  }
+
+  .input-box-image {
+    padding: 10px;
+  }
+}
+
+iframe {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+/* Inline code block styling */
+.cdx-inline-code {
+  background-color: #f5f5f5;
+  color: #c7254e;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-size: 0.85em;
+  padding: 2px 4px;
+  border-radius: 4px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  border: 1px solid #e0e0e0;
+}
+
+.custom-blockquote {
+  color: #222;
+  border-radius: 6px;
+  outline: none;
+  font-family: "Inter", sans-serif;
+  margin: 5px 20px;
+}
+
+.dev-scribe-blockquote-p {
+  border-left: 4px solid #ccc;
+  padding-left: 15px;
+}
+
+.custom-blockquote strong {
+  color: #b71c1c;
+}
+
+.custom-blockquote p {
+  margin: 0;
+  line-height: 1.5;
+}
+/* .tc-wrap {
+  z-index: 1 !important;
+} */
+/* --- Adding to resolve the z-index temporary --- */
+.tc-toolbox .tc-popover {
+  top: -20px !important;
+}
+.tc-table--heading {
+  z-index: 0 !important;
+}
+.codex-editor__redactor {
+  padding-bottom: 350px !important;
+}
+/* .codex-editor .joint-cell path[joint-selector="wrapper"] {
+  stroke: transparent !important;
+}
+
+.codex-editor
+  .joint-tools
+  .joint-tool[data-tool-name="hover-connect"]
+  > path[joint-selector="track"] {
+  fill: none !important;
+  stroke: transparent !important;
+}
+
+/* Only apply currentColor to paths that DON'T have a stroke attribute */
+/* .codex-editor path:not([stroke]) {
+  stroke: currentColor;
+}  */
+
+/* Prevent Editor.js from overriding JointJS stroke colors */
+
+.codex-editor path {
+  stroke: revert-layer !important;
+}
+/* .break-line {
+  white-space: pre-wrap;
+  border-bottom: 1px solid #ccc;
+  height: 10px;
+  margin-bottom: 10px;
+} */
+
+mark.search-highlight {
+  background-color: yellow;
+  color: black;
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+.cdx-alert {
+  margin-top: 15px !important;
+}
+
+/* Fix for application window shifting during scroll - more targeted approach */
+
+/* Ensure CodeMirror editors don't cause window shifting */
+.CodeMirror {
+  position: relative !important;
+}
+
+.CodeMirror-scroll {
+  overflow: auto !important;
+  position: relative !important;
+}
+
+/* Prevent scroll events from bubbling up and affecting the main window */
+.notion-scroller {
+  overscroll-behavior-y: contain !important;
+  overscroll-behavior-x: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+/* Ensure the main content area allows proper scrolling */
+.main-content {
+  position: relative !important;
+  overflow-y: hidden !important;
+  overflow-x: hidden !important;
+}
+.scroll-hidden {
+  overflow-y: hidden !important;
+}
+
+/* Fix for editor container to allow vertical scrolling but prevent shifting */
+.notion-frame {
+  position: relative !important;
+  overflow-y: scroll;
+  overflow-x: hidden !important;
+}
+
+.whenContentEditable {
+  position: relative !important;
+  overflow-y: visible !important;
+  overflow-x: hidden !important;
+}
+
+/* Specific fix for code blocks to prevent window shifting */
+.ce-rawtool .CodeMirror,
+.simple-js-editor .CodeMirror {
+  overscroll-behavior: contain !important;
+}
+
+/* Base transitions */
+.notion-frame,
+header,
+.devscribe-sidebar-container,
+.sidebar-toggle-container,
+.main-content {
+  transition: all 0.5s ease;
+}
+
+/* Disable transitions while resizing */
+.app-container.resizing .notion-frame,
+.app-container.resizing header,
+.app-container.resizing .devscribe-sidebar-container,
+.app-container.resizing .sidebar-toggle-container,
+.app-container.resizing .main-content {
+  transition: none !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   Plugin-specific Custom Topbar & Layout Styling
+   ═══════════════════════════════════════════════════════════════ */
+.readdy-light-topbar {
+  display: flex;
+  height: 50px;
+  padding: 0 16px 0 20px;
+  background-color: #F8F9FA;
+  border-bottom: 1px solid #E5E7EB;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+  font-family: 'Inter', sans-serif;
+  color: #374151;
+  box-sizing: border-box;
+}
+
+.topbar-left, .topbar-center, .topbar-right {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.topbar-left {
+  gap: 16px;
+  max-width: 60%;
+}
+
+.topbar-right {
+  gap: 8px;
+}
+
+.icon-btn-light {
+  background: transparent;
+  border: none;
+  color: #6B7280;
+  font-size: 17px;
+  height: 32px;
+  width: 32px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.icon-btn-light:hover {
+  background-color: #E5E7EB;
+  color: #374151;
+}
+
+.icon-btn-light.active {
+  background-color: #D1D5DB;
+  color: #111827;
+}
+
+.menu-item-light {
+  transition: background-color 0.15s;
+}
+
+.menu-item-light:hover {
+  background-color: #F3F4F6 !important;
+}
+
+.breadcrumb-path {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow: visible;
+  flex-wrap: nowrap;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* Heading Overrides for EditorJS (overriding the readdy.css inherit reset) */
+.ce-header, 
+h1.ce-header, 
+h2.ce-header, 
+h3.ce-header, 
+h4.ce-header, 
+h5.ce-header, 
+h6.ce-header {
+  font-weight: 700 !important;
+  color: #111827;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+  padding-top: 1.5em !important;
+  padding-bottom: 0.5em !important;
+  line-height: 1.25;
+}
+
+h1.ce-header, [data-level="1"].ce-header {
+  font-size: 2.25rem !important;
+}
+
+h2.ce-header, [data-level="2"].ce-header {
+  font-size: 1.75rem !important;
+}
+
+h3.ce-header, [data-level="3"].ce-header {
+  font-size: 1.4rem !important;
+}
+
+h4.ce-header, [data-level="4"].ce-header {
+  font-size: 1.2rem !important;
+}
+
+h5.ce-header, [data-level="5"].ce-header {
+  font-size: 1rem !important;
+}
+
+h6.ce-header, [data-level="6"].ce-header {
+  font-size: 0.875rem !important;
+}

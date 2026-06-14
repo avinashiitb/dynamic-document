@@ -1,0 +1,78 @@
+{
+  "name": "dynamic-document-plugin",
+  "version": "1.0.0",
+  "private": true,
+  "homepage": "./",
+  "dependencies": {
+    "@avinashiitb/diagramly": "^6.13.1",
+    "@avinashiitb/text-color-plugin": "^1.0.1",
+    "@codexteam/icons": "^0.3.3",
+    "@coolbytes/editorjs-delimiter": "^1.0.4",
+    "@editorjs/checklist": "^1.6.0",
+    "@editorjs/editorjs": "^2.31.6",
+    "@editorjs/embed": "^2.7.6",
+    "@editorjs/header": "^2.8.1",
+    "@editorjs/inline-code": "^1.5.2",
+    "@editorjs/link": "^2.6.2",
+    "@editorjs/list": "^2.0.8",
+    "@editorjs/nested-list": "^1.4.3",
+    "@editorjs/paragraph": "^2.11.3",
+    "@editorjs/quote": "^2.7.6",
+    "@editorjs/simple-image": "^1.3.3",
+    "@editorjs/table": "^2.4.5",
+    "@editorjs/underline": "^1.2.1",
+    "@editorjs/warning": "^1.4.0",
+    "@excalidraw/excalidraw": "^0.18.0",
+    "@itech-indrustries/editorjs-callout": "^1.0.0",
+    "@joint/core": "^4.0.0",
+    "@plebjs/editorjs-emoji-picker-tool": "^1.1.0",
+    "@sotaproject/strikethrough": "^1.0.1",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^13.5.0",
+    "codemirror": "^5.65.19",
+    "editorjs-alert": "^1.1.4",
+    "editorjs-break-line": "^1.0.10",
+    "editorjs-drag-drop": "^1.1.16",
+    "editorjs-inline-hotkey": "^1.0.5",
+    "editorjs-mathlive": "^1.0.1",
+    "editorjs-text-alignment-blocktune": "^1.0.3",
+    "jointjs": "^3.7.7",
+    "katex": "^0.16.22",
+    "lodash": "^4.17.21",
+    "moment": "^2.30.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-scripts": "5.0.1",
+    "uuid": "^9.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@craco/craco": "^7.1.0"
+  }
+}

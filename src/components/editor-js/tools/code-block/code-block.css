@@ -1,0 +1,23 @@
+.ce-rawtool__textarea {
+  min-height: 24px;
+  height: auto;
+  overflow-y: auto;
+  resize: vertical;
+  padding: 20px;
+  border-radius: 4px;
+  border: 0;
+  background-color: #f3f4f6;
+  font-family:
+    Menlo,
+    Monaco,
+    Consolas,
+    Courier New,
+    monospace;
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: -0.2px;
+  color: #41314e;
+  overscroll-behavior: contain;
+  box-sizing: border-box;
+  width: 100%;
+}

@@ -1,0 +1,63 @@
+.jointjs-block {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 800px;
+}
+
+.jointjs-paper-container {
+  flex: 1;
+  border: 1px solid #ccc;
+}
+
+.joint-cell.joint-type-standard.joint-type-standard-link.joint-link.joint-theme-default
+  path[joint-selector="wrapper"] {
+  stroke: transparent !important;
+}
+
+/* Paper */
+
+#paper.joint-paper,
+#paper .joint-paper {
+  border: 1px solid #d3d3d3;
+  box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.1);
+}
+
+/* Stencil */
+
+#stencil .joint-stencil {
+  border: none;
+  border-right: 1px solid #b3b3b3;
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.1);
+}
+
+/* Inspector */
+
+#inspector {
+  border-left: 1px solid #b3b3b3;
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.1);
+}
+
+#inspector .joint-inspector {
+  border: none;
+}
+
+/* Toolbar */
+
+#toolbar .joint-toolbar {
+  border: 1px solid #b3b3b3;
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.1);
+}
+
+#toolbar .joint-widget output {
+  width: 25px;
+}
+
+#toolbar .joint-widget[data-type="zoomToFit"]:after {
+  content: "Zoom to fit";
+  font-size: 12px;
+}
+
+#toolbar .joint-widget[data-type="separator"] {
+  line-height: 28px;
+}

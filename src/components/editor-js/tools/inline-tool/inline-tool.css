@@ -1,0 +1,30 @@
+.cdx-inline-tool {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.cdx-inline-tool:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.cdx-inline-tool svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.cdx-inline-tool[data-active="true"] {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.cdx-inline-tool[data-active="true"] svg path {
+  stroke: #388ae5;
+}

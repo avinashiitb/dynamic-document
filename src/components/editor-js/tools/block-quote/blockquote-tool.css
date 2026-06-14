@@ -1,0 +1,24 @@
+.custom-blockquote {
+  border-left: 4px solid #e53935;
+  padding: 12px 16px;
+  background: #fff3f3;
+  color: #222;
+  border-radius: 6px;
+  margin: 12px 0;
+  font-family: "Inter", sans-serif;
+}
+
+.custom-blockquote strong {
+  color: #b71c1c;
+}
+
+.custom-blockquote p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.custom-blockquote p:empty::before {
+  content: attr(data-placeholder);
+  color: #999;
+  cursor: text;
+}

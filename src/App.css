@@ -1,0 +1,288 @@
+/* Apply globally */
+* {
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: rgba(100, 100, 100, 0.25) transparent;
+}
+
+/* For Chromium (Electron) */
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  opacity: 0;
+}
+
+*:hover::-webkit-scrollbar {
+  opacity: 1;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Scrollbar thumb (the draggable part) */
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 100, 0.25);
+  border-radius: 9999px; /* fully rounded from top to bottom */
+  margin: 2px; /* ensures it doesn’t stick to edges */
+  transition:
+    background-color 0.3s ease,
+    opacity 0.3s ease;
+}
+
+/* Hover effect for thumb */
+*::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(100, 100, 100, 0.45);
+}
+
+/* Optional: Make horizontal scrollbars also rounded */
+*::-webkit-scrollbar-thumb:horizontal {
+  border-radius: 9999px;
+}
+/* Global Scroller bar end */
+
+.App {
+  text-align: left;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.devscribe-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #6366f1;
+  color: white;
+  padding: 0.4rem 0.75rem;
+  border-radius: 5px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+
+.devscribe-btn:hover {
+  background-color: #4f46e5;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* App.css */
+
+/* General styles */
+.app-container {
+  /* color: rgb(55, 53, 47); */
+  /* fill: currentcolor; */
+  line-height: 1.5;
+  font-family:
+    ui-sans-serif,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Helvetica,
+    "Apple Color Emoji",
+    Arial,
+    sans-serif,
+    "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  -webkit-font-smoothing: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.sidebar-listener {
+  width: 100vw;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex: 1 1 0%;
+  background: white;
+  cursor: text;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .sidebar-listener {
+    /* flex-direction: column; */
+  }
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    font-size: 14px;
+  }
+
+  /* Keep sidebar and main content side by side - removed flex-direction: column */
+  .sidebar-listener {
+    /* flex-direction: column; */
+  }
+}
+
+@media (max-width: 480px) {
+  .app-container {
+    font-size: 12px;
+  }
+}
+
+/* Sidebar Toggle Styles */
+.sidebar-toggle-container {
+  position: absolute;
+  top: 17px;
+  left: calc(
+    var(--sidebar-width) - 40px
+  ); /* Position at the end of sidebar when open */
+  z-index: 1000;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); */
+  transition: left 0.5s ease;
+}
+
+/* When sidebar is closed, move toggle to start with padding */
+.sidebar-toggle-container.sidebar-closed {
+  left: 15px; /* 10px base + 20px padding to avoid header text overlap */
+}
+
+.sidebar-toggle-btn {
+  /* background: #f8f9fa; */
+  background: none;
+  border: none;
+  /* border: 1px solid #e9ecef; */
+
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #495057;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0px;
+  min-height: 30px;
+}
+
+.sidebar-toggle-btn:hover {
+  background: #e9ecef;
+  border-color: #dee2e6;
+  color: #212529;
+}
+
+.sidebar-toggle-btn:active {
+  background: #dee2e6;
+  transform: translateY(1px);
+}
+
+/* Layout Styles */
+.main-content {
+  flex: 1;
+  transition: all 0.5s ease;
+  margin-left: 0;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.main-content.full-width {
+  flex: 1;
+}
+
+.sidebar-listener {
+  transition: all 0.5s ease;
+}
+
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: #4444442b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  backdrop-filter: blur(3px);
+}
+.popup-container {
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  width: 24rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.select-wrapper select {
+  padding: 4px 36px 4px 12px; /* extra right padding */
+  font-size: 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background-color: #fff;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Custom arrow */
+.select-wrapper::after {
+  content: "";
+  position: absolute;
+  right: 10px; /* ← move arrow 10px left */
+  top: 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  transform: translateY(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #6b7280;
+}
+
+/* Focus styles */
+.select-wrapper select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.4);
+}
