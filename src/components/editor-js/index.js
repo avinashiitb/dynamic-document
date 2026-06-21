@@ -106,6 +106,32 @@ const EditorComponent = ({ fileId, isPreview }) => {
   const isEditorInitialized = useRef(false);
   const dropdownRef = useRef(null);
 
+  // Force light theme and white background in all cases
+  useEffect(() => {
+    const forceLightTheme = () => {
+      document.body.style.backgroundColor = "#ffffff";
+      document.body.style.color = "#374151";
+      const htmlElement = document.documentElement;
+      if (htmlElement) {
+        htmlElement.style.backgroundColor = "#ffffff";
+        htmlElement.style.color = "#374151";
+      }
+    };
+    forceLightTheme();
+
+    const handleThemeEvent = () => {
+      forceLightTheme();
+    };
+
+    window.addEventListener("message", handleThemeEvent);
+    window.addEventListener("theme-changed", handleThemeEvent);
+
+    return () => {
+      window.removeEventListener("message", handleThemeEvent);
+      window.removeEventListener("theme-changed", handleThemeEvent);
+    };
+  }, []);
+
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -967,6 +993,8 @@ const EditorComponent = ({ fileId, isPreview }) => {
         width: "100%",
         height: "100%",
         position: "relative",
+        backgroundColor: "#ffffff",
+        color: "#374151",
       }}
     >
       {isRefreshing && (

@@ -777,3 +777,174 @@ p {
 #paper-wrapper .joint-cell {
   cursor: move !important;
 }
+
+/* ==========================================================================
+   Antigravity Premium Unified Sidebar & Popover Styles
+   ========================================================================== */
+
+/* Main Layout Positioning */
+.main-layout {
+  position: relative !important;
+  gap: 12px !important;
+}
+
+/* Style the main .menu container to be the single unified sidebar strip */
+.menu {
+  width: 72px !important;
+  background-color: #ffffff !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 8px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  padding: 12px 0 !important;
+  gap: 16px !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+  overflow: visible !important;
+  box-sizing: border-box !important;
+}
+
+/* Remove individual card styling from wrappers inside .menu */
+.menu > div[id^="standard-shape-box-"],
+.menu > div[id^="shape-box-"],
+.menu > div[id^="link-box-"],
+.menu > div[id^="animation-tool"] {
+  border: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+/* Width Utility */
+.w-64 {
+  width: 16rem !important; /* 256px */
+}
+
+/* Positioning Utilities for Popovers */
+.left-20 {
+  left: 84px !important; /* Position overlay popovers directly to the right of the sidebar */
+}
+
+.top-0 {
+  top: 0px !important;
+}
+
+.top-2 {
+  top: 8px !important;
+}
+
+.mt-2 {
+  margin-top: 0.5rem !important;
+}
+
+.inline-block {
+  display: inline-block !important;
+}
+
+/* Constrain SVG dimensions inside the menu and overlay popovers */
+.menu svg,
+.digramly-menu-toggle-class svg {
+  width: 24px !important;
+  height: 24px !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  display: block !important;
+}
+
+/* Unified Sidebar Button Styling */
+.menu button {
+  width: 44px !important;
+  height: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background-color: #ffffff !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 8px !important;
+  color: #4b5563 !important;
+  cursor: pointer !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.menu button:hover {
+  background-color: #f3f4f6 !important;
+  border-color: #d1d5db !important;
+  color: #111827 !important;
+}
+
+/* Active/selected sidebar button style */
+.menu button.active,
+.menu button[data-active="true"] {
+  background-color: #eff6ff !important;
+  border-color: #3b82f6 !important;
+  color: #1d4ed8 !important;
+}
+
+/* Premium Animated Toggle Switch styling at the bottom of the sidebar */
+.menu div[id^="animation-tool"] {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 6px !important;
+  margin-top: 8px !important;
+}
+
+/* Track */
+.menu div[id^="animation-tool"] .w-10.h-6 {
+  width: 36px !important;
+  height: 20px !important;
+  background-color: #e5e7eb !important;
+  border-radius: 9999px !important;
+  position: relative !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s ease !important;
+}
+
+.menu div[id^="animation-tool"] .w-10.h-6.bg-blue-600 {
+  background-color: #3b82f6 !important;
+}
+
+/* Thumb */
+.menu div[id^="animation-tool"] .w-4.h-1 {
+  width: 14px !important;
+  height: 14px !important;
+  background-color: #ffffff !important;
+  border-radius: 50% !important;
+  position: absolute !important;
+  top: 3px !important;
+  left: 3px !important;
+  transition: transform 0.2s ease !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Slide active thumb to the right */
+.menu div[id^="animation-tool"] .w-4.h-1.translate-x-5 {
+  transform: translateX(16px) !important;
+}
+
+/* Switch Text label */
+.menu div[id^="animation-tool"] span.text-xs {
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  color: #6b7280 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+}
+
+/* Premium Popover overlay panel styling */
+.digramly-menu-toggle-class {
+  background-color: #ffffff !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 8px !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+  padding: 0 !important;
+  z-index: 50 !important;
+}
